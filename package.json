@@ -1,0 +1,26 @@
+{
+  "name": "kata-js-jvm-code-test-trivia",
+  "version": "1.0.0",
+  "description": "CodeWorks version of the ugly trivia kata",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeworks-js/kata-js-jvm-code-test-trivia.git"
+  },
+  "keywords": [
+    "kata",
+    "refactor",
+    "legacy",
+    "clean",
+    "trivia"
+  ],
+  "author": "Romy Alula",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codeworks-js/kata-js-jvm-code-test-trivia/issues"
+  },
+  "homepage": "https://github.com/codeworks-js/kata-js-jvm-code-test-trivia#readme"
+}
