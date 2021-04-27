@@ -1,3 +1,4 @@
+// Initialisation des CodeWorkers
 const CODE_WORKERS = [
     {
         firstName: 'Michelle',
@@ -17,14 +18,15 @@ const CODE_WORKERS = [
     },
 ]
 
+// Initialisation des Catégories et des questions
 const CODE_TEST = {
     categories: new Set([
         {
             label: 'HTML',
             questions: [
                 {
-                    label: '?',
-                    answer: '',
+                    label: 'Which tag sets bold text ?',
+                    answer: '<string> or <b>',
                     difficulty: 1
                 }
             ]
@@ -33,8 +35,90 @@ const CODE_TEST = {
             label: 'CSS',
             questions: [
                 {
-                    label: '?',
-                    answer: '',
+                    label: 'What does CSS mean ?',
+                    answer: 'Cascading Style Sheets',
+                    difficulty: 1
+                }
+            ]
+        },
+        {
+            label: 'CSS',
+            questions: [
+                {
+                    label: 'What is CSS used for ?',
+                    answer: 'To add style to web documents.',
+                    difficulty: 1
+                }
+            ]
+        },
+        {
+            label: 'CSS',
+            questions: [
+                {
+                    label: 'How to make a div take all the available width in its container block ?',
+                    answer: 'It is automatic',
+                    difficulty: 2
+                }
+            ]
+        },
+        {
+            label: 'CSS',
+            questions: [
+                {
+                    label: 'What does relative positioning allow (position: relative) ?',
+                    answer: 'It allows to shift an element A from its ‘normal’ position.',
+                    difficulty: 2
+                }
+            ]
+        },
+        {
+            label: 'CSS',
+            questions: [
+                {
+                    label: 'With which CSS 2.1 property can you round the corners of a block (as long as the browser ' +
+                        'understands it) ?',
+                    answer: 'None. This is only possible in CSS 3 with ‘border-radius’.',
+                    difficulty: 4
+                }
+            ]
+        },
+        {
+            label: 'CSS',
+            questions: [
+                {
+                    label: 'How to target the first 4 elements of a ‘li’ list?',
+                    answer: 'li:nth-child(-n+4)',
+                    alternativeAnswers: 'li:top(4)|li:first(4)|li:child(0, 4)',
+                    difficulty: 4
+                }
+            ]
+        },
+        {
+            label: 'CSS',
+            questions: [
+                {
+                    label: 'What is the official prefix for Opera properties ?',
+                    answer: '-o-',
+                    difficulty: 5
+                }
+            ]
+        },
+        {
+            label: 'CSS',
+            questions: [
+                {
+                    label: 'How to target all the links on the page except those containing the string “codeworks” ?',
+                    answer: 'a:not([href*=“codeworks”])',
+                    difficulty: 5
+                }
+            ]
+        },
+        {
+            label: 'Javascript',
+            questions: [
+                {
+                    label: 'How can we add the value of a variable in a string ?',
+                    answer: 'By using the template string (`string ${var}`) or by using the + operator.',
                     difficulty: 1
                 }
             ]
@@ -43,8 +127,71 @@ const CODE_TEST = {
             label: 'Javascript',
             questions: [
                 {
-                    label: '?',
-                    answer: '',
+                    label: 'What is a callback ?',
+                    answer: 'It is a function passed as a parameter to another function, which will be called with the ' +
+                        'result to be able to react to it.',
+                    difficulty: 1
+                }
+            ]
+        },
+        {
+            label: 'Javascript',
+            questions: [
+                {
+                    label: 'What does NaN mean ?',
+                    answer: 'Not A Number',
+                    difficulty: 1
+                }
+            ]
+        },
+        {
+            label: 'Javascript',
+            questions: [
+                {
+                    label: 'How to find the length of the string ?',
+                    answer: 'String.length',
+                    difficulty: 1
+                }
+            ]
+        },
+        {
+            label: 'Javascript',
+            questions: [
+                {
+                    label: 'How to return a random number between 0 and 1 ?',
+                    answer: 'Math.random()',
+                    difficulty: 1
+                }
+            ]
+        },
+        {
+            label: 'Javascript',
+            questions: [
+                {
+                    label: 'Which function is used to delay the execution of an order ?',
+                    answer: '2 methods to call when the promise is resolved (resolve ()) or rejected (reject ()).',
+                    difficulty: 2
+                }
+            ]
+        },
+        {
+            label: 'Javascript',
+            questions: [
+                {
+                    label: 'what are the parameters that can take the function that we pass to the creation of a ' +
+                        'promise ? (new Promise(executor)).',
+                    answer: '2 methods to call when the promise is resolved (resolve ()) or rejected (reject ()).',
+                    difficulty: 2
+                }
+            ]
+        },
+        {
+            label: 'React',
+            questions: [
+                {
+                    label: 'What happens on setState() call ?',
+                    answer: 'It replaces actual component state with the one passed as a parameter. It allows React to ' +
+                        'compare the 2 versions.',
                     difficulty: 1
                 }
             ]
@@ -53,8 +200,40 @@ const CODE_TEST = {
             label: 'React',
             questions: [
                 {
-                    label: '?',
-                    answer: '',
+                    label: 'What does shouldComponentUpdate do ?',
+                    answer: 'This is a lifecycle method that tell React if the component should be updated after the ' +
+                        'last state modification. It allows optimizations',
+                    difficulty: 1
+                }
+            ]
+        },
+        {
+            label: 'React',
+            questions: [
+                {
+                    label: 'What is the key attribute in lists ?',
+                    answer: 'The keys are list elements id. It helps React to spot it to update it or remove it from ' +
+                        'the DOM',
+                    difficulty: 2
+                }
+            ]
+        },
+        {
+            label: 'Vue',
+            questions: [
+                {
+                    label: 'What are the 3 parts that define a Vue component ?',
+                    answer: 'Template, style, script.',
+                    difficulty: 1
+                }
+            ]
+        },
+        {
+            label: 'Vue',
+            questions: [
+                {
+                    label: 'How do you pass information from a parent component to a child component ?',
+                    answer: 'With props',
                     difficulty: 1
                 }
             ]
@@ -63,9 +242,82 @@ const CODE_TEST = {
             label: 'Java',
             questions: [
                 {
-                    label: '?',
-                    answer: '',
+                    label: 'Can one interface extend another interface ?',
+                    answer: 'Yes',
                     difficulty: 1
+                }
+            ]
+        },
+        {
+            label: 'Java',
+            questions: [
+                {
+                    label: 'What is a HashMap ?',
+                    answer: 'Set of unordered (key, value), complexity in O(1) for search and insertion.',
+                    difficulty: 2
+                }
+            ]
+        },
+        {
+            label: 'Java',
+            questions: [
+                {
+                    label: 'What is a RuntimeException ?',
+                    answer: 'An exception that the compiler does not need to check.',
+                    difficulty: 2
+                }
+            ]
+        },
+        {
+            label: 'Java',
+            questions: [
+                {
+                    label: 'What is an anonymous class ?',
+                    answer: 'A class that is defined at the moment of instantiation of an object.',
+                    difficulty: 2
+                }
+            ]
+        },
+        {
+            label: 'Java',
+            questions: [
+                {
+                    label: 'How can a garbage collection be triggered ?',
+                    answer: 'We can’t directly. You can only do System.gc() to notify the garbage collector that you ' +
+                        'would like to do it but nothing obliges it to do so.',
+                    difficulty: 3
+                }
+            ]
+        },
+        {
+            label: 'Java',
+            questions: [
+                {
+                    label: 'What are the new Java 8 features ?',
+                    answer: 'Lambdas, Streams, Optional, API Date.',
+                    difficulty: 3
+                }
+            ]
+        },
+        {
+            label: 'Java',
+            questions: [
+                {
+                    label: 'Can a constructor be Private ?',
+                    answer: 'Yes',
+                    difficulty: 3
+                }
+            ]
+        },
+        {
+            label: 'Java',
+            questions: [
+                {
+                    label: 'What is JIT ?',
+                    answer: 'Just-In-Time compilation. Its goal is to improve the performance of the bytecode ' +
+                        'execution according to the real needs when using a program (compilation of the bytecode ' +
+                        'in native code).',
+                    difficulty: 4
                 }
             ]
         },
@@ -85,7 +337,7 @@ const CODE_TEST = {
 function runCodeTest(){
     const EVALUATION = {
         start: null,
-        askQuestion: (questions) => {},
+        askQuestion: (category ,questions) => {}, // param supp catégorie en toutes lettres + random sur 6 questions - voire 3)
         checkCandidateAnswer: (question) => {},
         updateResult: (score) => {},
         candidate: {
@@ -99,9 +351,18 @@ function runCodeTest(){
 
     console.log('----  CodeTest has just started  ----')
 
-    // Le candidat choisit ses categories
+    // Logger les actions
+
+
+    // Le candidat choisit ses categories (2 catégories, 2 difficultés)
+    // Sélection aléatoire des questions (toutes catégories confondues)
+
     // L'evaluation est mise a jour : categories, start
-    // Le resultat est affiche
+    // Pour chaque question : validation, echec ou nouvelle question
+
+    // Le resultat est affiche sous forme de graphe ou autre
+
+    // Best effort
     // L'evaluation est mise a jour : identite du candidat, destinataire(s)
     // Le resultat est envoye par mail
 
