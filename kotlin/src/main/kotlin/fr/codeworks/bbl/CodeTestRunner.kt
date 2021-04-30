@@ -16,5 +16,15 @@ fun main() {
 =======
 fun main(){
     val aTechnicalInterview = Interview()
+<<<<<<< kata-logic
 >>>>>>> reorg repo
+=======
+    aTechnicalInterview.addCategorie("SQL")
+    aTechnicalInterview.addCategorie("JS")
+    aTechnicalInterview.addCategorie("CSS")
+    aTechnicalInterview.loadQuestions()
+    val responses = aTechnicalInterview.askQuestions()
+    val score = aTechnicalInterview.getScore(responses)
+    println("score du candidat: ${score}")
+>>>>>>> add main steps in kotlin
 }
