@@ -1,5 +1,6 @@
 package fr.codeworks.bbl
 
+<<<<<<< kata-logic
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.File
@@ -89,4 +90,8 @@ class Interview {
     fun addACandidate(lastname: String, fistname: String, email: String) {
         this.candidate?.create(lastname, fistname, email)
     }
+=======
+class Interview {
+
+>>>>>>> reorg repo
 }

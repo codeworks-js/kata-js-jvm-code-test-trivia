@@ -1,5 +1,6 @@
 package fr.codeworks.bbl
 
+<<<<<<< kata-logic
 fun main() {
     val aTechnicalInterview = Interview()
     aTechnicalInterview.addCategorie("SQL")
@@ -12,4 +13,8 @@ fun main() {
     println("The candidate as a total of $score points.")
 
 
+=======
+fun main(){
+    val aTechnicalInterview = Interview()
+>>>>>>> reorg repo
 }
