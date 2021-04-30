@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "CodeWorks version of the ugly trivia kata",
   "type": "module",
-  "main": "index.js",
+  "main": "tests/index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node tests/index.js",
     "test": "jest"
   },
   "repository": {
