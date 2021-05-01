@@ -6,7 +6,7 @@ fun main(){
     aTechnicalInterview.addCategorie("JS")
     aTechnicalInterview.addCategorie("CSS")
     aTechnicalInterview.loadQuestions()
-    val responses = aTechnicalInterview.askQuestions()
+    val responses = aTechnicalInterview.askQuestions("")
     val score = aTechnicalInterview.getScore(responses)
     println("score du candidat: ${score}")
 }

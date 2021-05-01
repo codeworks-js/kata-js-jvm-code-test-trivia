@@ -1,10 +1,32 @@
 package fr.codeworks.bbl
 
-import org.junit.jupiter.api.Assertions.*
+import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Test
 
-internal class InterviewTest {
+@DisplayName("The interview should")
+class InterviewTest {
+    private val interview = Interview()
 
-    @org.junit.jupiter.api.Test
+    @Test
+    @DisplayName("load questions")
     fun loadQuestions() {
+        val questions = interview.loadQuestions()
+        assertThat(questions).isNotEmpty
     }
+
+    @Test
+    fun loadQuestionsByCategories(){
+        val questionForCategory = interview.loadQuestionForCategory("Java")
+
+        assertThat(questionForCategory).isNotEmpty
+        assertThat(questionForCategory).hasSizeLessThan(30)
+    }
+
+    @Test
+    fun askingQuestions(){
+
+    }
+
+
 }
