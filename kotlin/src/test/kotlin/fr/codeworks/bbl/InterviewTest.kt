@@ -20,11 +20,12 @@ class InterviewTest {
         val questionForCategory = interview.loadQuestionForCategory("Java")
 
         assertThat(questionForCategory).isNotEmpty
-        assertThat(questionForCategory).hasSizeLessThan(30)
+        assertThat(questionForCategory?.size).isEqualTo(9)
     }
 
     @Test
     fun askingQuestions(){
+        interview.askQuestions("Java")
 
     }
 

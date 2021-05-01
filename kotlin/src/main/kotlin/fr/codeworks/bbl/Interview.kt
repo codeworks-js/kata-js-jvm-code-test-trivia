@@ -6,15 +6,16 @@ import java.io.File
 
 data class Question( val label: String, val answer: String,val difficulty: Int)
 data class CategorizedQuestions(val label: String, val questions: List<Question>)
-data class CandidateResponse(val response : String)
+data class CandidateResponse(val response : String, val question: Question)
 
 class Interview {
     internal var categories = mutableSetOf<String>()
     internal var questionsAndCategories = mutableListOf<CategorizedQuestions>()
+    internal var answersToQuestions = mutableListOf<CandidateResponse>()
 
     fun addCategorie(label: String) {
+        println("Adding ${label} as categories")
         categories.add(label)
-        println("there are ${categories.size} players")
     }
 
     fun loadQuestions(): List<CategorizedQuestions> {
@@ -27,22 +28,34 @@ class Interview {
         return allCategories
     }
 
-    fun loadQuestionForCategory(category: String): List<CategorizedQuestions> {
-        val allQuestions = this.loadQuestions().filter { question -> question.label == category }
-        println("Total questions for category: ${allQuestions.size}")
-        return allQuestions
+    fun loadQuestionForCategory(category: String): List<Question>? {
+        val category: CategorizedQuestions? = this.loadQuestions().find { question -> question.label == category }
+        println("Total questions for category: ${category?.questions?.size}")
+        return category?.questions
     }
 
     fun askQuestions(category: String): List<CandidateResponse> {
-        this.loadQuestions()
-        val questions =  this.questionsAndCategories.filter { q -> q.label == category }
-        println(":::Question by category size = ${questions.size}:::")
-        val responses: List<CandidateResponse> = ArrayList()
-        return ArrayList()
+        val questions: List<Question>?  = this.loadQuestionForCategory(category)
+        val responses = mutableListOf<CandidateResponse>()
+        println("Welcome to the interview game. You'll have ${questions?.size} questions on ${category}")
+        print("Are you ready? (y) to start")
+        val response = readLine()
+        if(response == "y"){
+            println("Let's go! ")
+            print("*****************************")
+            questions?.forEach { question ->
+                print(question.label)
+                val answer = readLine()
+                if(answer != null){
+                    responses.add(CandidateResponse(answer, question))
+                }
+            }
+            println("Thank you for your participation!")
+        }
+        return responses
     }
 
-    fun getScore(respons: List<CandidateResponse>): Int{
-        TODO("Not yet implemented")
+    fun evaluateCandidate(response: List<CandidateResponse>){
     }
 
 
