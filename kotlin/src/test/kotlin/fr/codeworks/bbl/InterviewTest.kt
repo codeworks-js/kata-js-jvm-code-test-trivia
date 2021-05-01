@@ -26,8 +26,6 @@ class InterviewTest {
     @Test
     fun askingQuestions(){
         interview.askQuestions("Java")
-
     }
-
 
 }

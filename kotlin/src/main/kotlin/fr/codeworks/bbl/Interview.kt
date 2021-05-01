@@ -7,11 +7,17 @@ import java.io.File
 data class Question( val label: String, val answer: String,val difficulty: Int)
 data class CategorizedQuestions(val label: String, val questions: List<Question>)
 data class CandidateResponse(val response : String, val question: Question)
+data class Candidate(var firstname: String, var lastname: String, var email: String) {
+    fun create(lastname: String, fistname: String, email: String) {
+        this.lastname = lastname
+        this.firstname = fistname
+        this.email = email
+    }
+}
 
 class Interview {
     internal var categories = mutableSetOf<String>()
-    internal var questionsAndCategories = mutableListOf<CategorizedQuestions>()
-    internal var answersToQuestions = mutableListOf<CandidateResponse>()
+    internal var candidate: Candidate? = null
 
     fun addCategorie(label: String) {
         println("Adding ${label} as categories")
@@ -38,11 +44,11 @@ class Interview {
         val questions: List<Question>?  = this.loadQuestionForCategory(category)
         val responses = mutableListOf<CandidateResponse>()
         println("Welcome to the interview game. You'll have ${questions?.size} questions on ${category}")
-        print("Are you ready? (y) to start")
+        print("Are you ready? (y) to start? \n")
         val response = readLine()
         if(response == "y"){
-            println("Let's go! ")
-            print("*****************************")
+            println("Let's go!")
+            print("***************** Questions *****************\n")
             questions?.forEach { question ->
                 print(question.label)
                 val answer = readLine()
@@ -51,14 +57,36 @@ class Interview {
                 }
             }
             println("Thank you for your participation!")
+            print("*************** End of questions ******************\n")
         }
         return responses
     }
 
-    fun evaluateCandidate(response: List<CandidateResponse>){
+    fun evaluateCandidate(candidateName: String,responses: List<CandidateResponse>): Double{
+        println("***************** Response from: $candidateName *****************\n")
+        var score = 0.0
+        responses.forEach { candidateResponse ->
+            val currentQuestion = candidateResponse.question
+            println("> Question: ${candidateResponse.question} ? \n")
+            println(">>> Response: ${candidateResponse.response}. \n")
+            print("----> What is your evaluation: t=true or f=false ?\n")
+            val answer = readLine()
+            if(answer != null){
+                val response: Boolean = answer.equals("t") || answer.equals("T")
+                if(response){
+                    when(currentQuestion.difficulty){
+                        1 -> score+=0.25
+                        2 -> score+=0.5
+                        3 -> score+=0.75
+                        4-> score+=1
+                    }
+                }
+            }
+        }
+        return score
     }
 
-
-
-
+    fun addACandidate(lastname: String, fistname: String, email: String) {
+        this.candidate?.create(lastname, fistname, email)
+    }
 }

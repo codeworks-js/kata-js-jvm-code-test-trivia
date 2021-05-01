@@ -1,12 +1,15 @@
 package fr.codeworks.bbl
 
-fun main(){
+fun main() {
     val aTechnicalInterview = Interview()
     aTechnicalInterview.addCategorie("SQL")
-    aTechnicalInterview.addCategorie("JS")
-    aTechnicalInterview.addCategorie("CSS")
+
+    aTechnicalInterview.addACandidate("firstname", "lastname", "email")
+
     aTechnicalInterview.loadQuestions()
     val responses = aTechnicalInterview.askQuestions("Java")
-     aTechnicalInterview.evaluateCandidate(responses)
-   // println("score du candidat: ${score}")
+    val score = aTechnicalInterview.evaluateCandidate("Michelle", responses)
+    println("The candidate as a total of $score points.")
+
+
 }
