@@ -1,2 +1,4 @@
-import runCodeTest from "./codeTest.js";
+const runCodeTest = require('./codeTest.js');
+
 runCodeTest()
+process.exit()
