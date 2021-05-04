@@ -9,14 +9,14 @@ import java.io.*
 
 
 @DisplayName("The interview should")
-class InterviewTest {
+class MainTest {
     lateinit var out: PrintStream
     val filePath = "src/test/resources"
 
     @BeforeEach
     fun setup(){
         out = System.out
-       System.setOut(PrintStream(FileOutputStream("$filePath/gold.txt")))
+       System.setOut(PrintStream(FileOutputStream("$filePath/lead.txt")))
     }
 
     @AfterEach
@@ -39,5 +39,3 @@ class InterviewTest {
       }
   }
 }
-
-

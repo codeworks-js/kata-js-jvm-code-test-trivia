@@ -9,16 +9,17 @@ data class CategorizedQuestions(val label: String, val questions: List<Question>
 data class CandidateResponse(val response : String, val question: Question)
 data class Candidate(var firstname: String, var lastname: String, var email: String) {}
 
-class Interview {
+ open class Interview {
     internal var categories = mutableSetOf<String>()
     internal var candidate: Candidate? = null
 
     fun addCat(l: String) {
-        println("Adding ${l} as categories")
+        println("Adding $l as categories")
         categories.add(l)
     }
     fun addCan(lastname: String, fistname: String, email: String) {
-       this.candidate = Candidate(lastname, fistname, email)
+        println("Adding $fistname as candidate")
+        this.candidate = Candidate(lastname, fistname, email)
     }
 
     fun run(cat: String): Double {

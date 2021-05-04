@@ -164,11 +164,6 @@
         "difficulty": 2
       },
       {
-        "label": "What is JIT ?",
-        "answer": "Just-In-Time compilation. Its goal is to improve the performance of the bytecode execution according to the real needs when using a program (compilation of the bytecode in native code).",
-        "difficulty": 4
-      },
-      {
         "label": "What is a HashMap ?",
         "answer": "Set of unordered (key, value), complexity in O(1) for search and insertion.",
         "difficulty": 2
