@@ -1,0 +1,6 @@
+
+----  CodeTest has just started  ----
+Adding SQL in categories
+Total categories: 7
+*******************************************************
+----  CodeTest has stopped  ----

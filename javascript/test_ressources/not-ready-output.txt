@@ -1,0 +1,19 @@
+
+----  CodeTest has just started  ----
+
+Adding SQL in categories
+
+Total categories: 7
+Total categories: 7
+Total questions for Java category: 8
+Welcome to the interview game. You'll have 8 questions on Java
+Are you ready? Press y and Enter to start.
+
+***************** Response from: Romy *****************
+
+
+*******************************************************
+
+The candidate as a total of 0 points.
+
+----  CodeTest has stopped  ----
