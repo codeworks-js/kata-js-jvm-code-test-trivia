@@ -1,48 +1,28 @@
 package fr.codeworks.bbl
 
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import java.io.File
 
 @DisplayName("The interview should")
 class InterviewTest {
-    private val interview = Interview()
 
     @Test
-    @DisplayName("load questions")
-    fun loadQuestions() {
-        val resource = interview.javaClass.getResource("/categories.json")
-        val file = File(resource.path)
-        val allCategoriesAsRaw = file.bufferedReader().use { it.readText() }
-        val categoryType = object : TypeToken<List<CategorizedQuestions>>() {}.type
-        val allCategories: List<CategorizedQuestions> = Gson().fromJson(allCategoriesAsRaw, categoryType)
-        println("Total categories: ${allCategories.size}")
-        val questions = allCategories
-        assertThat(questions).isNotEmpty
+    @DisplayName("should return 0.0 when the run with *hdhdhd*")
+    fun goldenMaster(){
+        val interview = Interview()
+        val result = interview.run("hdhdhd")
+
+        Assertions.assertThat(result).isEqualTo(0.0)
     }
 
     @Test
-    fun loadQuestionsByCategories() {
-        val resource = interview.javaClass.getResource("/categories.json")
-        val file = File(resource.path)
-        val allCategoriesAsRaw = file.bufferedReader().use { it.readText() }
-        val categoryType = object : TypeToken<List<CategorizedQuestions>>() {}.type
-        val allCategories: List<CategorizedQuestions> = Gson().fromJson(allCategoriesAsRaw, categoryType)
-        println("Total categories: ${allCategories.size}")
-        val category: CategorizedQuestions? = allCategories.find { question -> question.label == "Java" }
-        println("Total questions for category: ${category?.questions?.size}")
-        val questionForCategory = category?.questions
+    @DisplayName("should return java when the run with *Java*")
+    fun goldenMasterWithJava(){
+        val interview = Interview()
+        val result = interview.run("Java")
 
-        assertThat(questionForCategory).isNotEmpty
-        assertThat(questionForCategory?.size).isEqualTo(9)
-    }
-
-    @Test
-    fun askingQuestions(){
-        interview.run("Java")
+        Assertions.assertThat(result).isEqualTo(0.0)
     }
 
 }

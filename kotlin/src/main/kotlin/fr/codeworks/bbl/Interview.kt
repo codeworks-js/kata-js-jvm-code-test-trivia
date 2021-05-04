@@ -21,11 +21,12 @@ class Interview {
        this.candidate = Candidate(lastname, fistname, email)
     }
 
-    fun run(cat: String): List<CandidateResponse> {
-        val list = getCategoriesFromFile()
+    fun run(cat: String): Double {
+        val list = getCat()
         val c = list.find { q -> q.label == cat }
         val q: List<Question>? = c?.questions
         val r = mutableListOf<CandidateResponse>()
+        var s = 0.0 // s is for score
         println("Welcome to the interview game. You'll have ${q?.size} questions on ${cat}")
         print("Are you ready? (y) to start? \n")
         val r2 = readLine()
@@ -41,8 +42,7 @@ class Interview {
             }
             println("Thank you for your participation!")
         }
-        println("***************** Response from: ${this.candidate!!.firstname} *****************\n")
-        var s = 0.0
+        println("***************** Response from: ${this.candidate?.firstname} *****************\n")
         r.forEach { candidateResponse ->
             val currentQuestion = candidateResponse.question
             println("> Question: ${candidateResponse.question} ? \n")
@@ -60,10 +60,10 @@ class Interview {
                 }
             }
         }
-        return r
+        return s
     }
 
-    private fun getCategoriesFromFile(): List<CategorizedQuestions> {
+    private fun getCat(): List<CategorizedQuestions> {
         val resource = this.javaClass.getResource("/categories.json")
         val file = File(resource.path)
         val allCategoriesAsRaw = file.bufferedReader().use { it.readText() }

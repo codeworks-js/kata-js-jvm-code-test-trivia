@@ -3,5 +3,6 @@ fun main() {
     val codeTest = Interview()
     codeTest.addCat("SQL")
     codeTest.addCan("firstname", "lastname", "email")
-     codeTest.run("Java")
+    val score = codeTest.run("Java")
+    println("The candidate as a total of $score points.")
 }
