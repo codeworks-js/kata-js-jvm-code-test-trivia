@@ -22,7 +22,7 @@ class MainTest {
     @AfterEach
     fun destroy(){
         System.setOut(out)
-        File("lead.txt").delete()
+        File("$filePath/lead.txt").delete()
     }
 
   @Test
