@@ -22,13 +22,12 @@ data class Candidate(var firstname: String, var lastname: String, var email: Str
         this.candidate = Candidate(lastname, fistname, email)
     }
 
-    fun run(cat: String): Double {
-        val list = getCat()
-        val c = list.find { q -> q.label == cat }
-        val q: List<Question>? = c?.questions
+    open fun play(category: String): Double {
+        val questions = getCategorizedQuestions(category)
+        val q: List<Question>? = questions?.questions
         val r = mutableListOf<CandidateResponse>()
         var s = 0.0 // s is for score
-        println("Welcome to the interview game. You'll have ${q?.size} questions on ${cat}")
+        println("Welcome to the interview game. You'll have ${q?.size} questions on ${category}")
         print("Are you ready? (y) to start? \n")
         val r2 = readLine()
         if (r2 == "y") {
@@ -64,7 +63,13 @@ data class Candidate(var firstname: String, var lastname: String, var email: Str
         return s
     }
 
-    private fun getCat(): List<CategorizedQuestions> {
+     internal fun getCategorizedQuestions(category: String): CategorizedQuestions? {
+         val list = getCategories()
+         val questions = list.find { q -> q.label == category }
+         return questions
+     }
+
+     private fun getCategories(): List<CategorizedQuestions> {
         val resource = this.javaClass.getResource("/categories.json")
         val file = File(resource.path)
         val allCategoriesAsRaw = file.bufferedReader().use { it.readText() }
