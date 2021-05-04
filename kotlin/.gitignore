@@ -1,6 +1,4 @@
 HELP.md
-.gradle
-build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
@@ -11,8 +9,11 @@ build/
 *.iml
 *.ipr
 out/
-.gradle/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-
+# Gradle related files and caches
+.gradletasknamecache
+.gradle/
+build/
+bin/
